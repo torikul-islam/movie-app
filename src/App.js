@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
+import Movies from "./components/common/Movies";
 
 class App extends Component {
   render() {
     return (
-        <h1>app</h1>
+        <React.Fragment>
+          <Movies />
+        </React.Fragment>
     );
   }
 }
