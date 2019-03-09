@@ -1,15 +1,17 @@
 import React, {Component} from "react";
 import Table from "./common/Table";
+import {Link} from "react-router-dom";
 
 class MoviesTable extends Component {
     columns = [
-        {path: "title", label: "Title"},
+        {path: "title", label: "Title",
+            content: (movie) => <Link to={`/movies/${movie._id}/`}>{movie.title}</Link> },
         {path: "genre.name", label: "Genre"},
         {path: "numberInStock", label: "Stock"},
         {path: "dailyRentalRate", label: "Rate"},
         {
             key: "delete",
-            content: movie => (
+            content: (movie) => (
                 <button
                     onClick={() => this.props.onDelete(movie)}
                     className="btn btn-danger btn-sm"

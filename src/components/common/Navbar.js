@@ -5,7 +5,7 @@ class Navbar extends Component {
 
     render() {
         return (<nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link className="navbar-brand" to="">Movie</Link>
+            <Link className="navbar-brand" to="">Movie app</Link>
 
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +15,7 @@ class Navbar extends Component {
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/movies/">
-                            Movie app
+                            Movie
                         </NavLink>
                     </li>
                     <li className="nav-item">
