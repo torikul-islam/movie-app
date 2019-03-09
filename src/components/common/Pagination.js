@@ -1,6 +1,6 @@
-import React from 'react';
-import _ from 'lodash';
-import PropTypes from "prop-types"
+import React from "react";
+import _ from "lodash";
+import PropTypes from "prop-types";
 
 const Pagination = ({itemsCount, pageSize, onClick, currentPage}) => {
     const pagesCount = Math.ceil(itemsCount / pageSize);
@@ -13,10 +13,9 @@ const Pagination = ({itemsCount, pageSize, onClick, currentPage}) => {
                     <li
                         style={{cursor: "pointer"}}
                         key={page}
-                        className={page === currentPage ? "page-item active" : "page-item"}>
-                        <p
-                            className="page-link"
-                            onClick={() => onClick(page)}>
+                        className={page === currentPage ? "page-item active" : "page-item"}
+                    >
+                        <p className="page-link" onClick={() => onClick(page)}>
                             {page}
                         </p>
                     </li>
@@ -26,7 +25,7 @@ const Pagination = ({itemsCount, pageSize, onClick, currentPage}) => {
     );
 };
 
-Pagination.propTypes ={
+Pagination.propTypes = {
     itemsCount: PropTypes.number.isRequired,
     pageSize: PropTypes.number.isRequired,
     currentPage: PropTypes.number.isRequired,
