@@ -6,7 +6,9 @@ class App extends Component {
   render() {
     return (
         <React.Fragment>
-          <Movies />
+          <div className="container">
+              <Movies />
+          </div>
         </React.Fragment>
     );
   }
