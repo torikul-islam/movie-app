@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
 import Joi from "joi-browser";
 
 
@@ -29,16 +29,6 @@ class Form extends Component {
         return error ? error.details[0].message : null;
     };
 
-    handleSubmit = e => {
-        e.preventDefault();
-
-        const errors = this.validate();
-        this.setState({errors: errors || {}});
-        if (errors) return;
-
-        this.doSubmit()
-    };
-
     handleChange = ({currentTarget: input}) => {
         const errors = {...this.state.errors};
         const errorMessage = this.validateProperty(input);
@@ -49,6 +39,24 @@ class Form extends Component {
         data[input.name] = input.value;
         this.setState({data, errors});
     };
+
+    handleSubmit = e => {
+        e.preventDefault();
+
+        const errors = this.validate();
+        this.setState({errors: errors || {}});
+        if (errors) return;
+
+        this.doSubmit()
+    };
+
+    renderButton(label){
+        return (
+            <button className="btn btn-primary" disabled={this.validate()}>
+                {label}
+            </button>
+        )
+    }
 
 }
 
