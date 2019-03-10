@@ -1,10 +1,11 @@
 import React, {Component} from "react";
-import {getMovies} from "../../services/fakeMovieService";
-import {getGenres} from "../../services/fakeGenreService";
+import {Link} from "react-router-dom";
 import Pagination from "./Pagination";
 import {paginate} from "../../utils/paginate";
 import ListGroup from "./ListGroup";
 import MoviesTable from "../MoviesTable";
+import {getMovies} from "../../services/fakeMovieService";
+import {getGenres} from "../../services/fakeGenreService";
 import _ from "lodash";
 
 class Movies extends Component {
@@ -14,11 +15,11 @@ class Movies extends Component {
         selectedGenre: "",
         currentPage: 1,
         pageSize: 4,
-        sortColumn: { path: "title", order: "asc" }
+        sortColumn: {path: "title", order: "asc"}
     };
 
     componentDidMount() {
-        const genres = [{ _id: "", name: "All Movies"}, ...getGenres()];
+        const genres = [{_id: "", name: "All Movies"}, ...getGenres()];
         this.setState({movies: getMovies(), genres});
     };
 
@@ -38,10 +39,10 @@ class Movies extends Component {
 
     handleSort = (sortColumn) => {
 
-        this.setState({ sortColumn});
+        this.setState({sortColumn});
     };
 
-    getpageData = ()=>{
+    getpageData = () => {
         const {currentPage, pageSize, movies: allMovies, selectedGenre, sortColumn} = this.state;
         const filtered =
             selectedGenre && selectedGenre._id
@@ -74,11 +75,18 @@ class Movies extends Component {
                     />
                 </div>
                 <div className="col">
+                    <Link
+                        to="/movies/new/"
+                        className="btn btn-primary"
+                        style={{marginBottom: 20}}
+                    >
+                        New Movie
+                    </Link>
                     <p>Showing {totalCount} movies in the database.</p>
 
                     <MoviesTable
                         movies={movies}
-                        sortColumn = {sortColumn}
+                        sortColumn={sortColumn}
                         onDelete={this.handleDelete}
                         onSort={this.handleSort}
                     />
