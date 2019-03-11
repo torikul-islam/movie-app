@@ -42,7 +42,7 @@ class Movies extends Component {
         this.setState({sortColumn});
     };
 
-    getpageData = () => {
+    getPageData = () => {
         const {currentPage, pageSize, movies: allMovies, selectedGenre, sortColumn} = this.state;
         const filtered =
             selectedGenre && selectedGenre._id
@@ -61,7 +61,7 @@ class Movies extends Component {
 
         if (count === 0) return <p> There are no movie in the database</p>;
 
-        const {totalCount, data: movies} = this.getpageData();
+        const {totalCount, data: movies} = this.getPageData();
 
         return (
             <div className="row">

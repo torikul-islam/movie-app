@@ -27,6 +27,7 @@ class MovieForm extends Form {
 
     componentDidMount() {
         const genres = getGenres();
+        console.log(genres);
         this.setState({genres});
 
         const movieId = this.props.match.params.id;

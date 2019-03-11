@@ -7,8 +7,9 @@ import NotFound from "./components/NotFound"
 import Navbar from "./components/common/Navbar";
 import MovieForm from "./components/MovieForm";
 import LoginForm from "./components/loginForm";
-import './App.css';
 import RegisterForm from "./components/registerForm";
+import './App.css';
+import Dropdown from "./test/dropdown";
 
 class App extends Component {
     render() {
@@ -17,6 +18,7 @@ class App extends Component {
                 <Navbar/>
                 <main className="container">
                     <Switch>
+                        <Route path="/drop/" component={Dropdown} exact/>
                         <Route path="/register/" component={RegisterForm} exact/>
                         <Route path="/login/" component={LoginForm} exact/>
                         <Route path="/movies/:id/" component={MovieForm}/>
