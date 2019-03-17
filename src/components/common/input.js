@@ -12,6 +12,7 @@ const Input = ({name, label, value, error, type, onChange}) => {
                     name={name}
                     type={type}
                     className="form-control"
+                    autoComplete="off"
                 />
                 {error && <div className="alert alert-danger">{error}</div>}
             </div>
